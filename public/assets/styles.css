@@ -1,0 +1,301 @@
+/* —————— FONTS —————— */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@400;600;700&display=swap');
+
+nav {
+    position: absolute;     /* of fixed */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+}
+
+/* —————— BODY —————— */
+body {
+    background-color: #67977B;
+    color: #345D47;
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* —————— CONTAINER —————— */
+.container {
+    max-width: 85vw;
+    margin: auto;
+}
+
+/* —————— TITLE —————— */
+.title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.4em;
+    font-weight: bold;
+    margin-top: 1.5em;
+    color: #A5D6A7;
+    text-shadow: 0px 2px 6px #464646
+}
+
+/* ——————————————————————————————
+   STICKY WEEK MENU (GROENE VERSIE)
+—————————————————————————————— */
+.week-menu {
+    display: flex;
+    flex-wrap: wrap;          /* ✅ laat wrappen toe */
+    gap: 10px;
+    padding: 12px 15px;
+    background-color: #345D47;
+    border-bottom: 2px solid #2a4b39;
+
+    width: 100%;
+    box-sizing: border-box;
+
+    justify-content: space-between;
+}
+
+
+.week-menu.sticky {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+}
+
+.week-menu a {
+    padding: 10px 18px;
+    background-color: #A5D6A7;  /* LICHTGROEN */
+    color: #345D47;             /* GROENE TEKST */
+    font-weight: 600;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+    white-space: nowrap;
+    flex: 0 1 auto;      /* ❗️niet meer forceren */
+    text-align: center;
+    white-space: nowrap; /* tekst blijft mooi op 1 lijn */
+}
+
+
+.week-menu a:hover {
+    background-color: #ffffff;
+    transform: scale(1.10);
+}
+
+.week-menu a.active {
+    background-color: white;
+    color: #345D47;
+    transform: scale(1.12);
+}
+
+/* —————— HERO (FULLSCREEN FOTO) —————— */
+
+
+.hero h1 {
+    position: absolute;
+    bottom: 40px;
+    left: 40px;
+    color: white;
+    font-size: 3rem;
+    font-family: 'Montserrat', sans-serif;
+    text-shadow: 0px 4px 12px rgba(0,0,0,0.3);
+}
+.hero {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.25); /* lichte verduistering */
+    backdrop-filter: blur(1px);
+    transition: backdrop-filter 0.3s ease, background 0.3s ease;
+}
+
+/* —————— WEEK SECTIONS —————— */
+.week-section {
+    padding: 100px 20px;
+    max-width: 900px;
+    margin: auto;
+    color: white;
+    font-size: 1.2em;
+    line-height: 1.7;
+}
+
+.week-section:nth-child(even) {
+    background: rgba(0,0,0,0.1);
+    border-radius: 12px;
+}
+
+.week-section h2 {
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    font-size: 2.2em;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.week-section p {
+    text-align: center;
+    max-width: 700px;
+    margin: auto;
+}
+
+/* —————— ANIMATIES BIJ SCROLL (OPTIONEEL) —————— */
+.week-section {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: 0.6s ease;
+}
+
+.week-section.visible {
+    opacity: 1;
+    transform: translateY(0px);
+}
+.week-menu a.active {
+    background-color: #ffffff; /* lichte achtergrond */
+    color: #345D47;           /* donker groene tekst */
+    font-weight: 700;
+}
+/* —————— TEKST OP HERO —————— */
+.hero-text {
+    position: absolute;
+    bottom: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: white;
+    max-width: 80%;
+}
+
+.hero-text h1 {
+    font-size: 7rem;
+    font-family: 'Montserrat', sans-serif;
+    margin-bottom: 150px;
+    color: #A5D6A7;
+    text-shadow: 0px 2px 5px #345D47;
+}
+
+.hero-text p {
+    color: white;
+}
+
+
+.hero-text p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+.week-images {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-top: 25px;
+    justify-items: center; /* zorgt dat enkele afbeelding in het midden staat */
+}
+
+.week-images img {
+    width: 100%;
+    max-width: 300px;   /* maximale breedte voor 1 foto */
+    height: auto;       /* hoogte past automatisch */
+    object-fit: contain; /* hele foto zichtbaar */
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.week-images img:hover {
+    transform: scale(1.05);
+}
+.hero-overlay {
+    background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.1),
+        rgba(0,0,0,0.6)
+    );
+}
+.site-footer {
+    margin-top: 120px;
+    padding: 40px 20px;
+    background-color: #345D47;
+    color: white;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.site-footer a {
+    color: #A5D6A7;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.site-footer a:hover {
+    text-decoration: underline;
+}
+.download-box {
+    margin: 60px 0;
+    text-align: center;
+}
+
+.download-box a {
+    display: inline-block;
+    padding: 14px 28px;
+    background-color: #345D47;
+    color: white;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.download-box a:hover {
+    background-color: #2a4b39;
+    transform: scale(1.05);
+}
+.gallery img {
+  width: 200px;
+  cursor: pointer;
+}
+
+/* Lightbox */
+#lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+#lightbox img {
+  max-width: 90%;
+  max-height: 80%;
+}
+
+.close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 40px;
+  color: white;
+  cursor: pointer;
+}
+
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  font-size: 40px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.prev { left: 30px; }
+.next { right: 30px; }
